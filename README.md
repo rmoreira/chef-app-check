@@ -2,7 +2,7 @@
 
 This LWRP adds the ability to create a check scripts for whatever you like
 as long as you pass the command as a string
-The intention is to be able to hit the check script from outside the server. (TODO)
+The intention is to be able to hit the check script from outside the server.
 
 ## Supported Platforms
 
@@ -28,6 +28,9 @@ app_check "test_check2" do
   action :delete
 end
 ```
+
+## TODO:
+Hit the check script from outside the server.
 
 ## License and Authors
 
