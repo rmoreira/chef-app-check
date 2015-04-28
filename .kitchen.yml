@@ -1,0 +1,28 @@
+<%
+  begin
+    require 'dotenv'
+    Dotenv.load 
+  rescue LoadError
+    $stderr.puts "warning: could not load dotenv gem, variables in .env will be ignored"
+  end
+%>
+
+---
+driver:
+  name: docker
+
+platforms:
+- name: ubuntu
+
+provisioner:
+  name: chef_zero
+  sudo: true
+  environments_path: "<%= ENV['CHEF_REPO'] %>/environments"
+  roles_path: "<%= ENV['CHEF_REPO'] %>/roles"
+  data_bags_path: "<%= ENV['CHEF_REPO'] %>/data_bags"
+  encrypted_data_bag_secret_key_path: "<%= ENV['CHEF_REPO'] %>/.chef"
+
+suites:
+  - name: default
+    run_list:
+      - recipe[app-check::_test]
