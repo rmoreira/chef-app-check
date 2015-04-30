@@ -33,6 +33,7 @@ def load_current_resource
   @current_resource.owner(@new_resource.owner)
   @current_resource.group(@new_resource.group)
   @current_resource.mode(@new_resource.mode)
+  @current_resource.cookbook(@new_resource.cookbook)
 end
 
 def create_check
@@ -44,6 +45,7 @@ def create_check
   end
 
   template ::File.join(new_resource.path, new_resource.filename) do
+    cookbook  new_resource.cookbook
     source    'check.erb'
     mode      new_resource.mode
     owner     new_resource.owner

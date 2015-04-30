@@ -8,5 +8,6 @@ attribute :path,  :kind_of => String, :default => "/etv/service/app-check"
 attribute :owner, :kind_of => String, :default => "www-data"
 attribute :group, :kind_of => String, :default => "www-data"
 attribute :mode,  :kind_of => [Fixnum,String], :default => 0755
+attribute :cookbook,  :kind_of => String, :default => "app-check"
 
 attr_accessor :exists
